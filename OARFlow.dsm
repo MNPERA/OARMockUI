@@ -1,0 +1,6 @@
+<Machine IsPublic="False" IsExternal="False" IsOverlay="False" IsTransferOnly="False" RequirePersonID="False" RequireEmployerID="False" RequireTpaID="False">
+  <States>
+    <Page Name="LandingPage" />
+  </States>
+  <Designer>Kj0iSXNSb3VuZGVkQ29ybmVycz1UcnVlCUJyaWRnZVR5cGU9Tm9uZSIATGFuZGluZ1BhZ2U9IkNvbG9yPSNGRjAwNzJDNglQb3NpdGlvbj0zMjAsLTE0MCI=</Designer>
+</Machine>
