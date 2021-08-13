@@ -4,71 +4,79 @@
     {
         @TextBlock(text: "<b>Let's get  started on your PERA Refund! </b>", labelColumns: 0, controlColumns: 12)
         @TextBlock(text: "Tell us who you are:", labelColumns: 0, controlColumns: 12)
-        @TextBox(multiLine: false, placeholder: "XXX-XX-XXXX", formatter: Formatter.Ssn, labelText: "SSN", labelColumns: 2, controlColumns: 4, layoutStyle: LayoutStyle.Top, helpText: "", minLength: 9, maxLength: 9, minValue: "1", maxValue: "999999998")
+        @TextBox(multiLine: false, placeholder: "XXX-XX-XXXX", formatter: Formatter.Ssn, textStyle: TextStyle.Light, labelText: "SSN", labelColumns: 2, controlColumns: 5, layoutStyle: LayoutStyle.Top, helpText: "", minLength: 9, maxLength: 9, minValue: "1", maxValue: "999999998")
         @TextBlock(text: "-- OR --", labelColumns: 0, controlColumns: 12)
         @TextBox(placeholder: "", formatter: Formatter.Number, formatDecimals: 0, labelText: "PERA ID", labelColumns: 2, controlColumns: 2, layoutStyle: LayoutStyle.Top, helpText: "Can be found on myPERA login or any Letter sent to you.", minLength: 6, maxLength: 7, required: "if SSN is blank")
         @Blank()
         @Blank()
         @Button(buttonStyle: ButtonStyle.Primary, text: "Start Refund", dataSource: "", labelColumns: 0, controlColumns: 12, transition: "StartRefund" /*«1»*/)
     }
-    @using (Panel(stateFilter: "MemberInfo", headingText: "Verify Personal Information"))
+    @using (Panel(stateFilter: "MemberInfo", headingText: "Verify Personal Information", panelLayout: PanelLayout.Grid, labelColumns: 2, controlColumns: 10, layoutStyle: LayoutStyle.Top))
     {
-        @TextBlock(text: "<b>Let’s make sure your account details are current:</b>")
-        @Data(text: "<Stakeholder First Name Last Name", labelText: "Name: ", layoutStyle: LayoutStyle.Top)
+        @TextBlock(text: "<b>Let’s make sure your account details are current:</b>", labelColumns: 0, controlColumns: 12)
+        @Data(text: "<Stakeholder First Name Last Name>", labelText: "Name: ", layoutStyle: LayoutStyle.Top)
         @Data(text: "<Stakeholder address Line 1>", labelText: "Address: ", layoutStyle: LayoutStyle.Top)
-        @Data(text: "<Address Line 2, if exists else City, State Zip+4>")
+        @Data(text: "<Address Line 2, if exists else City, State Zip+4>", labelColumns: 3, controlColumns: 9)
         @Data(text: "<City, State, Zip +4>")
-        @using (ButtonGroup(buttonGroupStyle: ButtonGroupStyle.Horizontal))
+        @Blank()
+        @Blank()
+        @using (Panel(borderVisible: false, panelLayout: PanelLayout.Inline, labelColumns: 0, controlColumns: 12))
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, this is my current Name and Address", transition: "NotificationPreference")
-            @Button(text: "No, I need to make a change", transition: "MemberInfoUpdate")
+            @Button(buttonStyle: ButtonStyle.Light, text: "No, I need to make a change", transition: "MemberInfoUpdate")
             @Button(text: "Cancel, Applying for Refund", transition: "AreYouSure")
         }
     }
-    @using (Panel(headingText: "Verify Personal Information - Update Account"))
+    @using (Panel(headingText: "Verify Personal Information - Update Account", labelColumns: 0, controlColumns: 12))
     {
-        @TextBlock(text: "<b>Let’s get your account updated ASAP!</b>")
-        @TextBlock(text: "You have indicated that your personal information needs to be changed. Unfortunately, you cannot apply for refund until your account has been updated.")
-        @TextBlock()
-        @TextBlock(text: "You can update your account two ways: ")
+        @TextBlock(text: "<b>Let’s get your account updated ASAP!</b>", labelColumns: 0, controlColumns: 12)
+        @TextBlock(text: "You have indicated that your personal information needs to be changed. Unfortunately, you cannot apply for refund until your account has been updated.", labelColumns: 0, controlColumns: 12)
+        @Blank()
+        @TextBlock(text: "You can update your account two ways: ", labelColumns: 0, controlColumns: 12)
         @TextBlock(text: "1.  Online, through your myPERA account")
         @TextBlock(text: "2. By contacting a PERA Service Representative at 651.296.7460 or 1.800.652.9026.")
-        @using (ButtonGroup(buttonGroupStyle: ButtonGroupStyle.Horizontal))
+        @Blank()
+        @Blank()
+        @using (Panel(borderVisible: false, panelLayout: PanelLayout.Inline, labelColumns: 0, controlColumns: 12))
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, Take me to myPERA", transition: "member.mnpera.org")
-            @Button(text: "No, go back to Personal Information", transition: "BackMemberInfo")
+            @Button(buttonStyle: ButtonStyle.Light, text: "No, go back to Personal Information", transition: "BackMemberInfo")
             @Button(text: "Cancel Applying for Refund", transition: "AreYouSure")
         }
     }
     @using (Panel(headingText: "Notification Preference"))
     {
-        @TextBlock(text: "<b>PERA will send you e-mail notifications as your refund processes. </b>")
+        @TextBlock(text: "<b>PERA will send you e-mail notifications as your refund processes. </b>", labelColumns: 0, controlColumns: 12)
         @TextBlock(text: "Let’s make sure we have a valid e-mail address:")
-        @TextBox(placeholder: "john.smith@email.com", labelText: "E-mail:", layoutStyle: LayoutStyle.Top)
-        @using (ButtonGroup())
+        @TextBox(placeholder: "john.smith@email.com", labelText: "E-mail:", labelColumns: 2, controlColumns: 5, layoutStyle: LayoutStyle.Top, required: "true")
+        @Blank()
+        @Blank()
+        @using (Panel(borderVisible: false, panelLayout: PanelLayout.Inline, labelColumns: 0, controlColumns: 12))
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, I want e-mail notifications", transition: "VerifyPlan")
-            @Button(text: "No, I do not have an e-mail", transition: "NotificationPreferenceEmailRequired")
+            @Button(buttonStyle: ButtonStyle.Light, text: "No, I do not have an e-mail", transition: "NotificationPreferenceEmailRequired")
             @Button(text: "Cancel Applying for Refund", transition: "AreYouSure")
         }
     }
-    @using (Panel(stateFilter: "NotificationPreferenceEmailRequired", headingText: "Notification Preference - E-mail Required"))
+    @using (Panel(stateFilter: "NotificationPreferenceEmailRequired", headingText: "Notification Preference - E-mail Required", panelLayout: PanelLayout.Grid))
     {
         @TextBlock(text: "<b>You have indicated that you do not wish to provide an e-mail address. </b>")
         @TextBlock(text: "Unfortunately, PERA’s online application for refund requires a valid e-mail. ")
         @TextBlock(text: "We invite you to apply using our paper application process.")
-        @using (ButtonGroup())
+        @Blank()
+        @Blank()
+        @using (Panel(borderVisible: false, panelLayout: PanelLayout.Inline, labelColumns: 0, controlColumns: 12))
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, show me the paper application", transition: "PERAWebsite")
-            @Button(text: "No, I'll enter an e-mail", transition: "BackNotificationPreference")
+            @Button(buttonStyle: ButtonStyle.Light, text: "No, I'll enter an e-mail", transition: "BackNotificationPreference")
             @Button(text: "Cancel applying for Refund", transition: "AreYouSure")
         }
     }
-    @using (Panel(stateFilter: "VerifyPlan", headingText: "Verify Plan "))
+    @using (Panel(stateFilter: "VerifyPlan", headingText: "Verify Plan ", panelLayout: PanelLayout.Grid))
     {
         @TextBlock(text: "<b>You are eligible for a refund in the plan listed below.</b>")
         @RadioButton(caption: "Plan Name" /*«2»*/)
-        @using (ButtonGroup())
+        @using (Panel(borderVisible: true, panelLayout: PanelLayout.Inline, labelColumns: 0, controlColumns: 12))
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, I want a refund from this Plan", transition: "SelectPayment")
             @Button(text: "No, not this plan", transition: "NotThisPlan")
@@ -115,27 +123,6 @@
             @Button(text: "Cancel, Stop applying for refund", transition: "AreYouSure")
         }
     }
-    @using (Panel(headingText: "Submitted Application"))
-    {
-        @TextBlock(text: "<b>Congratulations! You have submitted your completed application for refund for your <SelectedPlan>. </b>")
-        @TextBlock(text: "PERA will send notifications about your refund to you at <insert email>.")
-        @TextBlock(text: "We know waiting for your refund can be hard, but please be patient! <b>By law, PERA has up to 120 days after receipt of this application to process your refund.</b>")
-        @TextBlock(text: "If you would like to apply for refund in an additional plan, click here.")
-        @TextBlock(text: "If you have questions or would like to cancel your application for refund, please contact PERA representative at 651.296.7460 or 1.800.652.9026.")
-        @TextBlock(text: "Thank You!")
-    }
-    @using (Panel(headingText: "Review: Refund to Rollover "))
-    {
-        @TextBlock(text: "<b>You have chosen to rollover the full amount of your refund payment to your rollover company.</b>")
-        @TextBlock(text: "Tell us which rollover company you will be using:")
-        @TextBox(placeholder: "Name of Company (VANGUARD, FIDELITY, ETC) ", text: "RolloverName")
-        @using (ButtonGroup())
-        {
-            @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, Tell us if this is a Roth IRA or not", transition: "RothIRA")
-            @Button(text: "No, I want to change my Payment", transition: "BackSelectPayment")
-            @Button(text: "Cancel, stop applying for Refund", transition: "AreYouSure")
-        }
-    }
     @using (Panel(stateFilter: "RothIRA", headingText: "Select if Roth IRA", panelLayout: PanelLayout.Grid, align: Align.Left))
     {
         @TextBlock(text: "<b>You have entered <insert rollover company> as your chosen rollover company.</b>", labelColumns: 0, controlColumns: 12)
@@ -147,6 +134,31 @@
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, this is a Roth IRA", transition: "WhichRefunded")
             @Button(buttonStyle: ButtonStyle.Light, text: "No, this is not a Roth IRA", transition: "WhichRefunded")
             @Button(text: "Cancel, stop applying for refund", transition: "AreYouSure")
+        }
+    }
+    @using (Panel(headingText: "Rollover Refund Information"))
+    {
+        @TextBlock(text: "<b>You have chosen to rollover the full amount of your refund payment to your rollover company.</b>")
+        @TextBlock(text: "Tell us which rollover company you will be using:")
+        @TextBox(placeholder: "Name of Company (VANGUARD, FIDELITY, ETC) ", text: "RolloverName")
+        @using (ButtonGroup())
+        {
+            @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, Tell us if this is a Roth IRA or not", transition: "RothIRA")
+            @Button(text: "No, I want to change my Payment", transition: "BackSelectPayment")
+            @Button(text: "Cancel, stop applying for Refund", transition: "AreYouSure")
+        }
+    }
+    @using (Panel(stateFilter: "RolloverCheckImage", headingText: "Review: Rollover Refund"))
+    {
+        @TextBlock(text: "<b>Let’s review the choices you’ve made for your <insert plan> refund. </b>")
+        @TextBlock(text: "PERA will mail the full amount of your refund to your address, made payable to the rollover company shown below. You have indicated this plan <is/is not> a Roth IRA. ")
+        @TextBlock(text: "<Display Rollover Check Image>")
+        @TextBlock(text: "Per IRS rules, you must deposit the check with the qualified plan/IRA within 60 days of issuance of check. ")
+        @using (ButtonGroup())
+        {
+            @Button(text: "Yes, Let me Sign to get my Refund", transition: "ApplicationSubmitted")
+            @Button(text: "No, I need to make some changes", transition: "SelectPayment")
+            @Button(transition: "AreYouSure")
         }
     }
     @using (Panel(stateFilter: "RolloverSelf", headingText: "Split Refund/Rollover Information", panelLayout: PanelLayout.Grid, labelColumns: 0, controlColumns: 12, helpText: ""))
@@ -164,25 +176,18 @@
             @Button(text: "Cancel, stop applying for Refund", transition: "AreYouSure")
         }
     }
-    @using (Panel(stateFilter: "RolloverCheckImage", headingText: "Review: Rollover Refund"))
-    {
-        @TextBlock(text: "<b>Let’s review the choices you’ve made for your <insert plan> refund. </b>")
-        @TextBlock(text: "PERA will mail the full amount of your refund to your address, made payable to the rollover company shown below. You have indicated this plan <is/is not> a Roth IRA. ")
-        @TextBlock(text: "<Display Rollover Check Image>")
-        @TextBlock(text: "Per IRS rules, you must deposit the check with the qualified plan/IRA within 60 days of issuance of check. ")
-        @using (ButtonGroup())
-        {
-            @Button(text: "Yes, Let me Sign to get my Refund", transition: "ApplicationSubmitted")
-            @Button(text: "No, I need to make some changes", transition: "SelectPayment")
-            @Button(transition: "AreYouSure")
-        }
-    }
     @using (Panel(stateFilter: "RolloverSelfCheckImage", headingText: "Review: Split Refund/Rollover", panelLayout: PanelLayout.Grid, labelColumns: 0, controlColumns: 12))
     {
         @TextBlock(text: "<b>Let’s review the choices you have made for your <insert plan> refund.</b>", labelColumns: 0, controlColumns: 12)
-        @BulletedList()
-        @TextBlock(text: "PERA will mail one check for $<AmountPayable> made payable to you.<br>PERA will mail a second check for the remaining amount made payable to <RolloverCompany> and you. <br> You have indicated <RolloverCompany> <is/is not> a Roth IRA.<br> Both checks will be mailed to <StakeholderAddress>. <br>", labelColumns: 2, controlColumns: 10)
-        @BulletedList()
+        @using (Panel(borderVisible: false, panelLayout: PanelLayout.Grid, labelColumns: 1, controlColumns: 11))
+        {
+            @BulletedList(text: "<ul>", labelColumns: 0, controlColumns: 12)
+            @TextBlock(text: "PERA will mail one check for $<AmountPayable> made payable to you.", labelColumns: 2, controlColumns: 10)
+            @TextBlock(text: "PERA will mail a second check for the remaining amount made payable to <RolloverCompany> and you.", labelColumns: 0, controlColumns: 12)
+            @TextBlock(text: "You have indicated <RolloverCompany> <is/is not> a Roth IRA.")
+            @TextBlock(text: "Both checks will be mailed to <StakeholderAddress>.")
+            @BulletedList(text: "</ul>", listStyle: ListStyle.Stacked)
+        }
         @TextBlock(text: "<Display Rollover Check Image alongside Self Check image - can we toggle right to see the second image?>", labelColumns: 0, controlColumns: 12)
         @TextBlock(text: "Per IRS rules, you must deposit the rollover check with the qualified plan/IRA within 60 days of issuance of check.", labelColumns: 0, controlColumns: 12)
         @using (Panel(borderVisible: false, panelLayout: PanelLayout.Inline, labelColumns: 0, controlColumns: 12))
@@ -192,17 +197,26 @@
             @Button(text: "Cancel, stop applying for Refund", transition: "AreYouSure")
         }
     }
+    @using (Panel(headingText: "Submitted Application"))
+    {
+        @TextBlock(text: "<b>Congratulations! You have submitted your completed application for refund for your <SelectedPlan>. </b>")
+        @TextBlock(text: "PERA will send notifications about your refund to you at <insert email>.")
+        @TextBlock(text: "We know waiting for your refund can be hard, but please be patient! <b>By law, PERA has up to 120 days after receipt of this application to process your refund.</b>")
+        @TextBlock(text: "If you would like to apply for refund in an additional plan, click here.")
+        @TextBlock(text: "If you have questions or would like to cancel your application for refund, please contact PERA representative at 651.296.7460 or 1.800.652.9026.")
+        @TextBlock(text: "Thank You!")
+    }
     @using (Panel(headingText: "Unable to Apply for Refund"))
     {
         @Data(text: "WhyUnable")
     }
-    @using (Panel(stateFilter: "AreYouSure", headingText: "Are you sure?"))
+    @using (Panel(stateFilter: "AreYouSure", borderVisible: false, headingText: "Are you sure?", panelLayout: PanelLayout.Grid, labelColumns: 0, controlColumns: 12))
     {
         @TextBlock(text: "Are you sure you want to cancel this Refund Application?")
-        @using (ButtonGroup())
+        @using (Panel(borderVisible: false, panelLayout: PanelLayout.Inline))
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes", transition: "YesSure")
-            @Button(text: "No", transition: "NoSure")
+            @Button(buttonStyle: ButtonStyle.Light, text: "No", transition: "NoSure")
         }
     }
 }
