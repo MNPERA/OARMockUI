@@ -1,0 +1,14 @@
+@using (Form())
+{
+    @using (Panel(headingText: "Apply for Pera Refund", isCollapsible: false, panelLayout: PanelLayout.Grid))
+    {
+        @TextBlock(text: "<b>Let's get started on your Pera refund!</b>", labelColumns: 0, controlColumns: 12)
+        @TextBlock(text: "Tell us who you are:", labelColumns: 0, controlColumns: 12)
+        @TextBox(multiLine: false, placeholder: "XXX-XX-XXXX", formatter: Formatter.Ssn, textStyle: TextStyle.Light, labelText: "SSN", labelColumns: 2, controlColumns: 5, layoutStyle: LayoutStyle.Top)
+        @TextBlock(text: "--OR--", labelColumns: 0, controlColumns: 12)
+        @TextBox(formatter: Formatter.Number, labelText: "PERA ID", labelColumns: 2, controlColumns: 2, layoutStyle: LayoutStyle.Top, helpText: "Can be found on myPERA login or any Letter sent to you.")
+        @Blank()
+        @Blank()
+        @Button(buttonStyle: ButtonStyle.Primary, text: "Start Refund", labelColumns: 0, controlColumns: 11)
+    }
+}
