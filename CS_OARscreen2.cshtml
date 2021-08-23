@@ -1,0 +1,19 @@
+@using (Form())
+{
+    @using (Panel(headingText: "Verify Personal Information", panelLayout: PanelLayout.Grid, labelColumns: 2, controlColumns: 10, layoutStyle: LayoutStyle.Top))
+    {
+        @TextBlock(text: "<b> Let's make sure your account details are current:</b>", labelColumns: 0, controlColumns: 12)
+        @Data(text: "<Stakeholder First Name Last Name>", labelText: "Name:", layoutStyle: LayoutStyle.Top)
+        @Data(text: "<Stakeholder Address Line 1>", labelText: "Address:", layoutStyle: LayoutStyle.Top)
+        @Data(text: "<Address Line 2, if exists else City, State Zip+4>")
+        @Data(text: "<City, State, Zip +4>")
+        @Blank()
+        @Blank()
+        @using (Panel(isCollapsible: false, panelLayout: PanelLayout.Inline, labelColumns: 0, controlColumns: 12))
+        {
+            @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, this is my current name and address")
+            @Button(buttonStyle: ButtonStyle.Light, text: "No, I need to make a change")
+            @Button(text: "Cancel, Applying for Refund")
+        }
+    }
+}
