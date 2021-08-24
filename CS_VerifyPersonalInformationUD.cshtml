@@ -1,0 +1,20 @@
+@using (Form())
+{
+    @using (Panel(headingText: "Verify Personal Information - Update", panelLayout: PanelLayout.Grid))
+    {
+        @TextBlock(text: "<b>Let’s get your account updated ASAP!</b>", controlColumns: 12, labelColumns: 0)
+        @TextBlock(text: "You have indicated that your personal information needs to be changed. Unfortunately, you cannot apply for refund until your account has been updated.", controlColumns: 12, labelColumns: 0)
+        @Blank()
+        @TextBlock(text: "You can update your account two ways:", controlColumns: 12, labelColumns: 0)
+        @TextBlock(text: "1.  Online, through your myPERA account")
+        @TextBlock(text: "2. By contacting a PERA Service Representative at 651.296.7460 or 1.800.652.9026.")
+        @Blank()
+        @Blank()
+        @using (Panel(borderVisible: false, panelLayout: PanelLayout.Inline, controlColumns: 12, labelColumns: 0))
+        {
+            @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, Take me to myPERA")
+            @Button(buttonStyle: ButtonStyle.Light, text: "No, Go back to Personal Information")
+            @Button(text: "Cancel, Stop applying for Refund")
+        }
+    }
+}
