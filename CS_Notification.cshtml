@@ -1,0 +1,17 @@
+@using (Form())
+{
+    @using (Panel(headingText: "Notification Prefrence"))
+    {
+        @TextBlock(text: "<b>PERA will send you e-mail notifications as your refund processes.</b>", controlColumns: 12, labelColumns: 0)
+        @TextBlock(text: "Let's make sure we have a valid E-mail address:")
+        @TextBox(placeholder: "dave.johnson@email.com", formatter: Formatter.Email, formatDecimals: 0, controlColumns: 5, labelColumns: 2, labelText: "E-Mail:", layoutStyle: LayoutStyle.Top)
+        @Blank()
+        @Blank()
+        @using (Panel(borderVisible: false, panelLayout: PanelLayout.Inline, controlColumns: 12, labelColumns: 0))
+        {
+            @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, I want e-mail notifications")
+            @Button(buttonStyle: ButtonStyle.Light, text: "No, I do not have an e-mail")
+            @Button(text: "Cancel, Stop Applying for Refund")
+        }
+    }
+}
