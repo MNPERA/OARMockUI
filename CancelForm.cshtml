@@ -1,0 +1,12 @@
+@using (Form())
+{
+    @using (Panel(headingText: "Cancel Your Application", stateFilter: "Cancel"))
+    {
+        @TextBlock(text: "This will cancel the application process.  Are you sure you want to cancel?")
+        @using (Panel(borderVisible: false, panelLayout: PanelLayout.Inline))
+        {
+            @Button(buttonStyle: ButtonStyle.Primary, text: "Yes")
+            @Button(buttonStyle: ButtonStyle.Light, text: "No")
+        }
+    }
+}
