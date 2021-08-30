@@ -1,0 +1,17 @@
+@using (Form())
+{
+    @using (Panel(headingText: "Verify E-mail", isCollapsible: false, panelLayout: PanelLayout.Grid))
+    {
+        @TextBlock(text: "<b>You have entered a new E-mail  address. It must be verified. </b>")
+        @TextBlock(text: "A message with a code has been sent to your new E-mail address you entered, Please enter the code to verify your new E-mail address.")
+        @TextBox(labelText: "Verification Code", labelColumns: 2, controlColumns: 2, layoutStyle: LayoutStyle.Top, helpText: "If you don't see the code, check your spam folders you may have for this E-mail.")
+        @Blank()
+        @Blank()
+        @using (Panel(borderVisible: false, panelLayout: PanelLayout.Inline))
+        {
+            @Button(buttonStyle: ButtonStyle.Primary, text: "Next")
+            @Button(buttonStyle: ButtonStyle.Light, text: "Resend Code")
+            @Button(text: "Go back and change E-mail address")
+        }
+    }
+}
