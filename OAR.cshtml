@@ -24,7 +24,7 @@
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, this is my current Name and Address", transition: "NotificationPreference")
             @Button(buttonStyle: ButtonStyle.Light, text: "No, I need to make a change", transition: "MemberInfoUpdate")
-            @Button(text: "Cancel, Applying for Refund", transition: "AreYouSure")
+            @Button(text: "Cancel applying for Refund", transition: "AreYouSure")
         }
     }
     @using (Panel(headingText: "Verify Personal Information - Update Account", labelColumns: 0, controlColumns: 12))
@@ -41,7 +41,7 @@
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, Take me to myPERA", transition: "member.mnpera.org")
             @Button(buttonStyle: ButtonStyle.Light, text: "No, go back to Personal Information", transition: "BackMemberInfo")
-            @Button(text: "Cancel Applying for Refund", transition: "AreYouSure")
+            @Button(text: "Cancel applying for Refund", transition: "AreYouSure")
         }
     }
     @using (Panel(headingText: "Notification Preference"))
@@ -55,7 +55,7 @@
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, I want e-mail notifications", transition: "VerifyPlan")
             @Button(buttonStyle: ButtonStyle.Light, text: "No, I do not have an e-mail", transition: "NotificationPreferenceEmailRequired")
-            @Button(text: "Cancel Applying for Refund", transition: "AreYouSure")
+            @Button(text: "Cancel applying for Refund", transition: "AreYouSure")
         }
     }
     @using (Panel(headingText: "Notification Preference - E-mail Required", panelLayout: PanelLayout.Grid, stateFilter: "NotificationPreferenceEmailRequired"))
@@ -80,7 +80,7 @@
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, I want a refund from this Plan", transition: "SelectPayment")
             @Button(text: "No, not this plan", transition: "NotThisPlan")
-            @Button(text: "Cancel, stop applying for refund", transition: "AreYouSure")
+            @Button(text: "Cancel applying for refund", transition: "AreYouSure")
         }
     }
     @using (Panel(headingText: "Select Which Plan", stateFilter: "VerifyPlans"))
@@ -93,7 +93,7 @@
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, This is the Plan", transition: "SelectPayment")
             @Button(text: "No, Not any of these plans", transition: "NotThesePlans")
-            @Button(text: "Cancel, stop applying for refund", transition: "AreYouSure")
+            @Button(text: "Cancel applying for refund", transition: "AreYouSure")
         }
     }
     @using (Panel(headingText: "Select Payment Option", stateFilter: "SelectPayment"))
@@ -107,7 +107,7 @@
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, I want to review my selections", transition: "HowRefunded")
             @Button(text: "No, I want to see my Plan", transition: "BackPlan")
-            @Button(text: "Cancel, stop applying for refund", transition: "AreYouSure")
+            @Button(text: "Cancel applying for refund", transition: "AreYouSure")
         }
     }
     @using (Panel(headingText: "Review: Refund to Self", stateFilter: "Self"))
@@ -120,7 +120,7 @@
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, Let me Sign to get my Refund", transition: "ApplicationSubmitted")
             @Button(text: "No, I need to make a change", transition: "BackSelectPayment")
-            @Button(text: "Cancel, Stop applying for refund", transition: "AreYouSure")
+            @Button(text: "Cancel applying for refund", transition: "AreYouSure")
         }
     }
     @using (Panel(headingText: "Select if Roth IRA", panelLayout: PanelLayout.Grid, stateFilter: "RothIRA", align: Align.Left))
@@ -133,7 +133,7 @@
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, this is a Roth IRA", transition: "WhichRefunded")
             @Button(buttonStyle: ButtonStyle.Light, text: "No, this is not a Roth IRA", transition: "WhichRefunded")
-            @Button(text: "Cancel, stop applying for refund", transition: "AreYouSure")
+            @Button(text: "Cancel applying for refund", transition: "AreYouSure")
         }
     }
     @using (Panel(headingText: "Rollover Refund Information"))
@@ -145,7 +145,7 @@
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, Tell us if this is a Roth IRA or not", transition: "RothIRA")
             @Button(text: "No, I want to change my Payment", transition: "BackSelectPayment")
-            @Button(text: "Cancel, stop applying for Refund", transition: "AreYouSure")
+            @Button(text: "Cancel applying for Refund", transition: "AreYouSure")
         }
     }
     @using (Panel(headingText: "Review: Rollover Refund", stateFilter: "RolloverCheckImage"))
@@ -173,7 +173,7 @@
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, Tell us if this is a Roth IRA", transition: "RothIRA")
             @Button(buttonStyle: ButtonStyle.Light, text: "No, I want to review my Payment Options", transition: "BackSelectPayment")
-            @Button(text: "Cancel, stop applying for Refund", transition: "AreYouSure")
+            @Button(text: "Cancel applying for Refund", transition: "AreYouSure")
         }
     }
     @using (Panel(headingText: "Review: Split Refund/Rollover", panelLayout: PanelLayout.Grid, stateFilter: "RolloverSelfCheckImage", labelColumns: 0, controlColumns: 12))
@@ -194,7 +194,7 @@
         {
             @Button(buttonStyle: ButtonStyle.Primary, text: "Yes, Let me Sign to get my Refund", transition: "ApplicationSubmitted")
             @Button(buttonStyle: ButtonStyle.Light, text: "No, I need to make some changes", transition: "SelectPayment")
-            @Button(text: "Cancel, stop applying for Refund", transition: "AreYouSure")
+            @Button(text: "Cancel applying for Refund", transition: "AreYouSure")
         }
     }
     @using (Panel(headingText: "Submitted Application"))
