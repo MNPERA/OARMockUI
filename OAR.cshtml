@@ -222,5 +222,33 @@
             @Button(buttonStyle: ButtonStyle.Light, text: "No, I want to resume Refund Application")
         }
     }
+
+    @using (Panel(headingText: "Verify E-mail", isCollapsible: false, panelLayout: PanelLayout.Grid))
+    {
+        @TextBlock(text: "<b>You have entered a new E-mail  address. It must be verified. </b>")
+        @TextBlock(text: "A message with a code has been sent to your new E-mail address you entered, Please enter the code to verify your new E-mail address.")
+        @TextBox(helpText: "If you don't see the code, check your spam folders you may have for this E-mail.", controlColumns: 2, labelColumns: 2, labelText: "Verification Code", layoutStyle: LayoutStyle.Top)
+        @Blank()
+        @Blank()
+        @using (Panel(borderVisible: false, panelLayout: PanelLayout.Inline))
+        {
+            @Button(buttonStyle: ButtonStyle.Primary, text: "Next")
+            @Button(buttonStyle: ButtonStyle.Light, text: "Resend Code")
+            @Button(text: "Go back and change E-mail address")
+        }
+    }
+
+
+    @using (Panel(headingText: "E-mail Verified", panelLayout: PanelLayout.Grid))
+    {
+        @TextBlock(text: "<b> Your E-mail address has been successfully verified. </b>")
+        @Blank()
+        @Blank()
+        @using (Panel(borderVisible: false, panelLayout: PanelLayout.Inline))
+        {
+            @Button(buttonStyle: ButtonStyle.Primary, text: "Resume Application")
+        }
+    }
 }
+
 @*«H4sIAAAAAAAEAG2OsQrDMAwFf0V4DoGuXdulSwiFdnE8qFguAkUOtjP47+shpSR0Pd07ZK3rrDVDLJRNZy4okoGE3/xi4VI74AAay8aEznDlvAjWDA/FBqBEwGWRCiEmuFNY1R9H/ZQmbewX8d/IkxKHCiOlHBUFbtoyMxaOatzut1FQYcCZgDN4CrhKIf9POu2M/qBsh0bdB01Xwzb+AAAA»*@
